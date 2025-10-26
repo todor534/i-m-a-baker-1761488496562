@@ -1,0 +1,245 @@
+:root {
+  --color-primary: #b47b42;
+  --color-secondary: #fff7e6;
+  --color-accent: #e6c89f;
+  --color-bg: #fffdfa;
+  --color-text: #3a2e1b;
+  --color-muted: #d9cbb0;
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Inter', Arial, sans-serif;
+  --header-height: 70px;
+  --footer-height: 60px;
+  --shadow: 0 2px 8px rgba(180, 123, 66, 0.07);
+  --radius: 12px;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover, a:focus {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+header {
+  height: var(--header-height);
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header .logo {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+header nav {
+  display: flex;
+  gap: 2rem;
+}
+
+header nav a {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+main {
+  flex: 1;
+  padding: 2rem 0 2rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-title);
+  color: var(--color-primary);
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.4em;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+footer {
+  height: var(--footer-height);
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 -2px 8px rgba(180, 123, 66, 0.07);
+  margin-top: auto;
+}
+
+.product-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+
+.product-card:hover, .product-card:focus-within {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(180, 123, 66, 0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: var(--color-muted);
+  display: block;
+}
+
+.product-card-content {
+  padding: 1.2rem 1rem 1rem 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card-title {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin: 0 0 0.5em 0;
+}
+
+.product-card-desc {
+  color: #6b5432;
+  font-size: 1rem;
+  margin-bottom: 0.8em;
+  flex: 1;
+}
+
+.product-card-price {
+  font-weight: bold;
+  color: var(--color-accent);
+  font-size: 1.1rem;
+  margin-bottom: 0.5em;
+}
+
+@media (max-width: 700px) {
+  main {
+    padding: 1rem 0;
+  }
+  header, footer {
+    padding: 0 1rem;
+  }
+  .product-gallery {
+    gap: 1rem;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: var(--color-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-muted);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+button,
+input[type="submit"] {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.6em 1.2em;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: var(--shadow);
+}
+button:hover,
+input[type="submit"]:hover {
+  background: var(--color-accent);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: var(--radius);
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  .product-card img {
+    height: 130px;
+  }
+}
